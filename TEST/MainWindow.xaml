@@ -1,0 +1,47 @@
+﻿<Window x:Class="TEST.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TEST"
+        xmlns:menuBar="clr-namespace:TEST.View.UserControls"
+        xmlns:server="clr-namespace:TEST.View.UserControls"
+        xmlns:client="clr-namespace:TEST.View.UserControls"
+
+        mc:Ignorable="d"
+        Title="MainWindow" Height="2000" Width="2000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition />
+            <RowDefinition  Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+        <!--menu bar-->
+        <menuBar:MenuBar/>
+        <!--menu bar-->
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!--server-->
+            <server:Server Grid.Row="0" />
+            <!--server-->
+
+            <!--client-->
+            <client:Client Grid.Column="1" />
+            <!--client-->
+            
+        </Grid>
+
+    </Grid>
+</Window>

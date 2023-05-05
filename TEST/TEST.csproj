@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="refresh-icon-removebg-preview.png" />
+    <None Remove="show_pass.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="refresh-icon-removebg-preview.png" />
+    <Resource Include="show_pass.png" />
+  </ItemGroup>
+
+</Project>
