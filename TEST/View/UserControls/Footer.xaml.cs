@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace TEST.View.UserControls
 {
     /// <summary>
-    /// Interaction logic for Server.xaml
+    /// Interaction logic for Footer.xaml
     /// </summary>
-    public partial class Server : UserControl
+    public partial class Footer : UserControl
     {
-        public Server()
+        public Footer()
         {
             InitializeComponent();
-
-            serverTitle.Text = "Login to the server";
-            //btnLogin.Content = "Login";
-            //txtBnoAccount.Text = "Don't have an account?";
-            //signUpLink.Text = "Sign Up";
         }
     }
 }

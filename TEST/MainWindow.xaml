@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition />
-            <RowDefinition  Height="70"/>
+            <RowDefinition  Height="45"/>
         </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -40,8 +40,20 @@
             <!--client-->
             <client:Client Grid.Column="1" />
             <!--client-->
+
+
+        </Grid>
+        <!--footer-->
+
+        <Grid Grid.Row="2" Background="LightCyan">
+
+            <TextBlock x:Name="footer" Grid.ColumnSpan="2" Text="All Rights Reserved To The Site Owner ©"
+                        FontSize="30" HorizontalAlignment="Center"
+                       VerticalAlignment="Stretch"></TextBlock>
             
         </Grid>
+        
+        <!--footer-->
 
     </Grid>
 </Window>

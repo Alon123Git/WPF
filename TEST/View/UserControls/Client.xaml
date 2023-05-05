@@ -27,19 +27,21 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="clientTitle" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="Youe Credentials" FontSize="50"/>
+        <TextBlock x:Name="clientTitle" Grid.Row="0" Grid.Column="1"
+                   Grid.ColumnSpan="3" Text="Youe Credentials"
+                   FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
 
         <TextBlock x:Name="txbId" Grid.Column="0" Grid.Row="1"
                            Text="ID: " HorizontalAlignment="Right" FontSize="40" />
-        <TextBox x:Name="txtId" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
-                          VerticalAlignment="top" Height="50">
+        <local:CleareableTextBox x:Name="txtId" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                          VerticalAlignment="top" Height="50" Placeholder="Enter ID">
 
-        </TextBox>
+        </local:CleareableTextBox>
         <TextBlock x:Name="txbPasswordClient" Grid.Column="0" Grid.Row="2"
                            Text="Password: " FontSize="40" />
-        <PasswordBox x:Name="pbClient" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
-                              MaxLength="11" VerticalAlignment="Top" Height="50">
-        </PasswordBox>
+        <local:CleareableTextBox x:Name="pbClient" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
+                              VerticalAlignment="Top" Height="50" Placeholder="Enter Password">
+        </local:CleareableTextBox>
 
         <Button x:Name="btnAcceptAll" Grid.Row="3" Grid.Column="1"
                          VerticalAlignment="Top" Height="60"
@@ -52,3 +54,4 @@
     </Grid>
     <!--client-->
 </UserControl>
+    
