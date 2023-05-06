@@ -39,6 +39,7 @@
                               VerticalAlignment="Top" Height="50" Placeholder="Enter Password">
         </local:CleareableTextBox>
 
+
         <Button x:Name="btnlogin" Grid.Row="3" Grid.Column="3"
                      VerticalAlignment="Top" Height="60" Content="Login" 
                         FontSize="20">
@@ -51,7 +52,7 @@
                     <LineBreak />
                     <LineBreak />
                     <LineBreak />
-                    <Hyperlink FontSize="20">Sign In</Hyperlink>
+                    <Hyperlink FontSize="20">Sign Up</Hyperlink>
         </TextBlock>
     </Grid>
     <!--server-->

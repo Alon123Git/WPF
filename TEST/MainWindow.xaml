@@ -7,7 +7,7 @@
         xmlns:menuBar="clr-namespace:TEST.View.UserControls"
         xmlns:server="clr-namespace:TEST.View.UserControls"
         xmlns:client="clr-namespace:TEST.View.UserControls"
-
+        xmlns:foot="clr-namespace:TEST.View.UserControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="2000" Width="2000">
     <Grid>
@@ -26,34 +26,26 @@
         <!--menu bar-->
         <menuBar:MenuBar/>
         <!--menu bar-->
-
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
+                
             </Grid.ColumnDefinitions>
+            
+            
 
             <!--server-->
-            <server:Server Grid.Row="0" />
+            <server:Server Grid.Column="0" />
             <!--server-->
 
             <!--client-->
             <client:Client Grid.Column="1" />
             <!--client-->
-
-
-        </Grid>
-        <!--footer-->
-
-        <Grid Grid.Row="2" Background="LightCyan">
-
-            <TextBlock x:Name="footer" Grid.ColumnSpan="2" Text="All Rights Reserved To The Site Owner ©"
-                        FontSize="30" HorizontalAlignment="Center"
-                       VerticalAlignment="Stretch"></TextBlock>
             
         </Grid>
-        
         <!--footer-->
-
+        <foot:Footer Grid.Row="2" />
+        <!--footer-->
     </Grid>
 </Window>

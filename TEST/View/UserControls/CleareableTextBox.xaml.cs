@@ -32,6 +32,7 @@ namespace TEST.View.UserControls
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+
         public string Placeholder
         {
             get { return placeholder; }
