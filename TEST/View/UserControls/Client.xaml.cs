@@ -25,10 +25,18 @@ namespace TEST.View.UserControls
             InitializeComponent();
 
             clientTitle.Text = "Youe Credentials";
-            //lblId.Content = "Your ID: ";
-            //lblPas.Content = "Your Password";
-            //btnAccept.Content = "Accept All";
-            //btnManage.Content = "Management Only";
+        }
+
+        private void btnAcceptAll_Click(object sender, RoutedEventArgs e)
+        {
+            //if (revealModeCheckBox.IsChecked == true)
+            //{
+            //    passwordBox1.PasswordRevealMode = PasswordRevealMode.Visible;
+            //}
+            //else
+            //{
+            //    passwordBox1.PasswordRevealMode = PasswordRevealMode.Hidden;
+            //}
         }
     }
 }

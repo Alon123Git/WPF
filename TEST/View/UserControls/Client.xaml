@@ -34,40 +34,57 @@
 
         </local:CleareableTextBox>
 
+
         <TextBlock x:Name="txbPasswordClient" Grid.Column="0" Grid.Row="2"
                            Text="Password: " FontSize="40" />
-        <local:CleareableTextBox x:Name="pbClient" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
-                              VerticalAlignment="Top" Height="50" Placeholder="Enter Password">
-        </local:CleareableTextBox>
+        <PasswordBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="top"
+                     Height="50"></PasswordBox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Column="4" Grid.Row="2" VerticalAlignment="top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Width="63" Height="50" HorizontalAlignment="Left" 
+                        Grid.ColumnSpan="1">
+                <Image Source="/Images/show_pass.png" />
 
-        <StackPanel Grid.Row="2" Grid.Column="4">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+            </Button>
+            <Button Grid.Column="1" Width="63" Height="50" HorizontalAlignment="Center" 
+                        Grid.ColumnSpan="1">
+                <Image Source="/Images/refresh-icon-removebg-preview.png" />
 
-                <Button>
-                    <Image Source="/refresh-icon-removebg-preview.png" />
-                </Button>
+            </Button>
 
-                <Button Grid.Column="1">
-                    <Image Source="/show_pass.png" />
-                </Button>
-            </Grid>
+            <Button Grid.Column="2" Width="63" Height="50" HorizontalAlignment="Center" 
+                        Grid.ColumnSpan="1">
+                <Image Source="/Images/AcceptPass.png" />
 
-
-        </StackPanel>
+            </Button>
+        </Grid>
 
         <Button x:Name="btnAcceptAll" Grid.Row="3" Grid.Column="1"
                          VerticalAlignment="Top" Height="60"
-                        Content="Accept All" FontSize="20">
+                        Content="Accept All" FontSize="20" Click="btnAcceptAll_Click">
         </Button>
         <Button x:Name="btnManagementOnly" Grid.Row="3"
                         Grid.Column="3" VerticalAlignment="Top" Height="60"
                         Content="Management Only" FontSize="20">
         </Button>
-
 
     </Grid>
     <!--client-->

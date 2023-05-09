@@ -35,10 +35,20 @@
                          Grid.ColumnSpan="3" VerticalAlignment="Top"
                          Height="50" Placeholder="Enter User Name" />
 
-        <local:CleareableTextBox x:Name="pbServer" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
-                              VerticalAlignment="Top" Height="50" Placeholder="Enter Password">
-        </local:CleareableTextBox>
+        <PasswordBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
+                     VerticalAlignment="top" Height="50"></PasswordBox>
 
+        <Grid Grid.Column="4" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button HorizontalAlignment="Left" Width="50" Height="50" 
+                    Grid.RowSpan="2" VerticalAlignment="Top">
+                <Image Source="/Images/show_pass.png" />
+
+            </Button>
+        </Grid>
 
         <Button x:Name="btnlogin" Grid.Row="3" Grid.Column="3"
                      VerticalAlignment="Top" Height="60" Content="Login" 

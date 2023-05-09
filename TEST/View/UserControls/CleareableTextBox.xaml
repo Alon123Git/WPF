@@ -11,7 +11,7 @@
         <TextBox x:Name="txtInput" VerticalAlignment="Center"
                    FontSize="16" FontWeight="Light" Background="Transparent" 
                  Text="{Binding Placeholder, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"
-                 TextChanged="txtInput_TextChanged"/>
+                 TextChanged="txtInput_TextChanged" Height="100"/>
         <TextBlock x:Name="tbPlaceholder" Text="{Binding Placeholder}" FontSize="16"
                     FontWeight="Light" Foreground="DarkGray" VerticalAlignment="Center"
                     Margin="5, 0, 0, 0" Panel.ZIndex="-1"/>

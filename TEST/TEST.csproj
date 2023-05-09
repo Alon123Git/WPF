@@ -14,8 +14,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="refresh-icon-removebg-preview.png" />
-    <Resource Include="show_pass.png" />
+    <Resource Include="Images\refresh-icon-removebg-preview.png" />
+    <Resource Include="Images\show_pass.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Images\acceptPass.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
