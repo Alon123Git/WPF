@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Brushes = System.Windows.Media.Brushes;
 
 namespace TEST.View.UserControls
 {
@@ -20,6 +22,7 @@ namespace TEST.View.UserControls
     /// </summary>
     public partial class Server : UserControl
     {
+        bool show = false;
         public Server()
         {
             InitializeComponent();
@@ -28,6 +31,35 @@ namespace TEST.View.UserControls
             //btnLogin.Content = "Login";
             //txtBnoAccount.Text = "Don't have an account?";
             //signUpLink.Text = "Sign Up";
+        }
+
+        private void showPass_Click(object sender, RoutedEventArgs e)
+        {
+            if (show)
+            {
+                passBox.Password = passwordTxtBox.Text;
+                passwordTxtBox.Visibility = Visibility.Collapsed;
+                passBox.Visibility = Visibility.Visible;
+            }
+
+            if (!show)
+            {
+                passwordTxtBox.Text = passBox.Password;
+                passBox.Visibility = Visibility.Collapsed;
+                passwordTxtBox.Visibility = Visibility.Visible;
+            }
+            show = !show;
+        }
+
+        private void ClearUserName_Click(object sender, RoutedEventArgs e)
+        {
+            txtUserName.Text = "";
+        }
+
+        private void ClearPasword_Click(object sender, RoutedEventArgs e)
+        {
+            passBox.Password = "";
+            passwordTxtBox.Text = "";
         }
     }
 }

@@ -23,22 +23,31 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
+        <!--Title Line-->
         <TextBlock x:Name="clientTitle" Grid.Row="0" Grid.Column="1"
                    Grid.ColumnSpan="3" Text="Youe Credentials"
                    FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
+        <!--Title Line-->
 
+        <!--Id Line-->
         <TextBlock x:Name="txbId" Grid.Column="0" Grid.Row="1"
-                           Text="ID: " HorizontalAlignment="Right" FontSize="40" />
-        <local:CleareableTextBox x:Name="txtId" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
-                          VerticalAlignment="top" Height="50" Placeholder="Enter ID">
+                           Text="ID: " HorizontalAlignment="Right" FontSize="35" />
+        <TextBox x:Name="txtId" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                 VerticalAlignment="top" Height="50" FontSize="30">
+        </TextBox>
+        <Button Background="LightSalmon" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" Height="20" Width="20" 
+                Content="X" Click="CleanPass_Click"></Button>
+        <!--Id Line-->
 
-        </local:CleareableTextBox>
-
-
+        <!--Password Line-->
         <TextBlock x:Name="txbPasswordClient" Grid.Column="0" Grid.Row="2"
-                           Text="Password: " FontSize="40" />
-        <PasswordBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="top"
-                     Height="50"></PasswordBox>
+                           Text="Password: " FontSize="35" HorizontalAlignment="Right" />
+        <TextBox x:Name="passwordTxtBox" Visibility="Collapsed"
+                  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
+                     VerticalAlignment="top" Height="50" FontSize="30" />
+        <PasswordBox x:Name="passBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="top"
+                     Height="50" PasswordChar="*" FontSize="45"></PasswordBox>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -49,6 +58,10 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
         </Grid>
+        <Button Background="LightSalmon" Grid.Column="3" Grid.Row="0" VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" Height="20" Width="20" 
+                Content="X" Click="CleanId_Click"></Button>
+        
         <Grid Grid.Column="4" Grid.Row="2" VerticalAlignment="top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="7*"/>
@@ -59,33 +72,34 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Width="63" Height="50" HorizontalAlignment="Left" 
-                        Grid.ColumnSpan="1">
-                <Image Source="/Images/show_pass.png" />
 
+            <Button x:Name="showPass" Click="Button_Click" Grid.Column="0"
+                    Width="63" Height="50"
+                    HorizontalAlignment="Left" Grid.ColumnSpan="1">
+                <local:ShowPasss />
             </Button>
             <Button Grid.Column="1" Width="63" Height="50" HorizontalAlignment="Center" 
-                        Grid.ColumnSpan="1">
+                    Grid.ColumnSpan="1">
                 <Image Source="/Images/refresh-icon-removebg-preview.png" />
-
             </Button>
-
-            <Button Grid.Column="2" Width="63" Height="50" HorizontalAlignment="Center" 
-                        Grid.ColumnSpan="1">
-                <Image Source="/Images/AcceptPass.png" />
-
+            <Button Grid.Column="2" Width="63" Height="50" 
+                   HorizontalAlignment="Center" 
+                   Grid.ColumnSpan="1">
+                <Image Source="/Images/acceptPass.png" />
             </Button>
         </Grid>
+        <!--Password Line-->
 
+        <!--Bottm Line-->
         <Button x:Name="btnAcceptAll" Grid.Row="3" Grid.Column="1"
-                         VerticalAlignment="Top" Height="60"
+                        VerticalAlignment="Top" Height="60"
                         Content="Accept All" FontSize="20" Click="btnAcceptAll_Click">
         </Button>
         <Button x:Name="btnManagementOnly" Grid.Row="3"
                         Grid.Column="3" VerticalAlignment="Top" Height="60"
                         Content="Management Only" FontSize="20">
         </Button>
-
+        <!--Bottm Line-->
     </Grid>
     <!--client-->
 </UserControl>

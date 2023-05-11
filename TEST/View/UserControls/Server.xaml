@@ -28,42 +28,64 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
+        <!--Title Line-->
         <TextBlock x:Name="serverTitle" Grid.Row="0" Grid.Column="1"
                            Grid.ColumnSpan="3"
                            Text="Login to the server" FontSize="50"/>
-        <local:CleareableTextBox Grid.Row="1" Grid.Column="1"
+        <!--Title Line-->
+        
+        <!--User Name Line-->
+        <TextBlock Grid.Row="2" Text="User Name: " HorizontalAlignment="Right" 
+                   VerticalAlignment="Top" FontSize="35"></TextBlock>
+        <TextBox x:Name="txtUserName" Grid.Row="2" Grid.Column="1"
                          Grid.ColumnSpan="3" VerticalAlignment="Top"
-                         Height="50" Placeholder="Enter User Name" />
+                         Height="50" FontSize="30"></TextBox>
+        <Button Background="LightSalmon" Grid.Row="1" Grid.Column="3" Content="X"
+                VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Width="20" Height="20" Click="ClearUserName_Click"></Button>
+        <!--User Name Line-->
 
-        <PasswordBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
-                     VerticalAlignment="top" Height="50"></PasswordBox>
-
-        <Grid Grid.Column="4" Grid.Row="2">
+        <!--Password Line-->
+        <TextBlock Grid.Row="4" Text="Password: " FontSize="35" 
+                   HorizontalAlignment="Right"  VerticalAlignment="Top"></TextBlock>
+        <PasswordBox x:Name="passBox" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"
+                     VerticalAlignment="Top" Height="50" PasswordChar="*" 
+                     FontSize="45"></PasswordBox>
+        <TextBox x:Name="passwordTxtBox" Visibility="Collapsed"
+                 Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"
+                     VerticalAlignment="Top" Height="50" FontSize="30"/>
+        <Button Background="LightSalmon" Grid.Row="3" Grid.Column="3" Content="X"
+                VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Width="20" Height="20" Click="ClearPasword_Click"></Button>
+        <Grid Grid.Column="4" Grid.Row="4">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Button HorizontalAlignment="Left" Width="50" Height="50" 
+            <Button x:Name="showPass" Click="showPass_Click"
+                    HorizontalAlignment="Left" Width="50" Height="50" 
                     Grid.RowSpan="2" VerticalAlignment="Top">
-                <Image Source="/Images/show_pass.png" />
-
+                <local:ShowPasss />
             </Button>
         </Grid>
-
-        <Button x:Name="btnlogin" Grid.Row="3" Grid.Column="3"
+        <!--Password Line-->
+        
+        <!--Bottom Line-->
+        <Button x:Name="btnlogin" Grid.Row="6" Grid.Column="3"
                      VerticalAlignment="Top" Height="60" Content="Login" 
                         FontSize="20">
         </Button>
 
-        <TextBlock x:Name="txbAccount" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"
+        <TextBlock x:Name="txbAccount" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
                            Text="Don't have an account?" FontSize="20" />
-        <TextBlock x:Name="txbSignIn" Grid.Row="5" Grid.Column="1"
+        <TextBlock x:Name="txbSignIn" Grid.Row="6" Grid.Column="1"
                            Grid.ColumnSpan="2">
                     <LineBreak />
                     <LineBreak />
                     <LineBreak />
                     <Hyperlink FontSize="20">Sign Up</Hyperlink>
         </TextBlock>
+        <!--Bottom Line-->
     </Grid>
     <!--server-->
 </UserControl>

@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace TEST.View.UserControls
 {
     /// <summary>
-    /// Interaction logic for MenuBar.xaml
+    /// Interaction logic for ShowPasss.xaml
     /// </summary>
-    public partial class MenuBar : UserControl
+    public partial class ShowPasss : UserControl
     {
-        public MenuBar()
+        public ShowPasss()
         {
             InitializeComponent();
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 }

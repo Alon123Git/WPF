@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace TEST.View.UserControls
 {
@@ -20,6 +21,7 @@ namespace TEST.View.UserControls
     /// </summary>
     public partial class Client : UserControl
     {
+        bool show = false;
         public Client()
         {
             InitializeComponent();
@@ -29,14 +31,36 @@ namespace TEST.View.UserControls
 
         private void btnAcceptAll_Click(object sender, RoutedEventArgs e)
         {
-            //if (revealModeCheckBox.IsChecked == true)
-            //{
-            //    passwordBox1.PasswordRevealMode = PasswordRevealMode.Visible;
-            //}
-            //else
-            //{
-            //    passwordBox1.PasswordRevealMode = PasswordRevealMode.Hidden;
-            //}
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (show)
+            {
+                passBox.Password = passwordTxtBox.Text;
+                passwordTxtBox.Visibility = Visibility.Collapsed;
+                passBox.Visibility = Visibility.Visible;
+            }
+
+            if (!show)
+            {
+                passwordTxtBox.Text = passBox.Password;
+                passBox.Visibility = Visibility.Collapsed;
+                passwordTxtBox.Visibility = Visibility.Visible;
+            }
+            show = !show;
+        }
+
+        private void CleanPass_Click(object sender, RoutedEventArgs e)
+        {
+            passwordTxtBox.Text = "";
+            passBox.Password = "";
+        }
+
+        private void CleanId_Click(object sender, RoutedEventArgs e)
+        {
+            txtId.Text = "";
         }
     }
 }

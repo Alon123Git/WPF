@@ -24,12 +24,6 @@ namespace TEST
         {
             InitializeComponent();
 
-            // SERVER
-         
-          
-
-            //// CLIENT
-           
         }
     }
 }

@@ -9,19 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\acceptPass.png" />
     <None Remove="refresh-icon-removebg-preview.png" />
     <None Remove="show_pass.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\refresh-icon-removebg-preview.png" />
-    <Resource Include="Images\show_pass.png" />
+    <Content Include="Images\acceptPass.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Images\acceptPass.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Resource Include="Images\refresh-icon-removebg-preview.png" />
+    <Resource Include="Images\show_pass.png" />
   </ItemGroup>
 
 </Project>
