@@ -51,11 +51,17 @@ namespace TEST.View.UserControls
             show = !show;
         }
 
+        /// <summary>
+        /// Empty the user name text
+        /// </summary>
         private void ClearUserName_Click(object sender, RoutedEventArgs e)
         {
             txtUserName.Text = "";
         }
 
+        /// <summary>
+        /// Empty the password text
+        /// </summary>
         private void ClearPasword_Click(object sender, RoutedEventArgs e)
         {
             passBox.Password = "";

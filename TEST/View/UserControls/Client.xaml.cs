@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -52,15 +53,45 @@ namespace TEST.View.UserControls
             show = !show;
         }
 
+        /// <summary>
+        /// Empty the password method
+        /// </summary>
         private void CleanPass_Click(object sender, RoutedEventArgs e)
         {
             passwordTxtBox.Text = "";
             passBox.Password = "";
         }
 
+        /// <summary>
+        /// Empty the text id method
+        /// </summary>
         private void CleanId_Click(object sender, RoutedEventArgs e)
         {
             txtId.Text = "";
+        }
+
+        private void RandomPassword_Click(object sender, RoutedEventArgs e)
+        {
+            passBox.Password = GeneratePassword(8);
+            passwordTxtBox.Text = GeneratePassword(8);
+        }
+
+        public string GeneratePassword(int length)
+        {
+            // Define a regular expression pattern to match the password.
+            string pattern = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
+
+            // Generate a new random password until it matches the pattern.
+            Random rand = new Random();
+            string password;
+            do
+            {
+                // Generate a new password of the specified length.
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                password = new string(Enumerable.Repeat(chars, length).Select(s => s[rand.Next(s.Length)]).ToArray());
+            } while (!Regex.IsMatch(password, pattern));
+
+            return password;
         }
     }
 }
