@@ -28,9 +28,6 @@ namespace TEST.View.UserControls
             InitializeComponent();
 
             serverTitle.Text = "Login to the server";
-            //btnLogin.Content = "Login";
-            //txtBnoAccount.Text = "Don't have an account?";
-            //signUpLink.Text = "Sign Up";
         }
 
         private void showPass_Click(object sender, RoutedEventArgs e)
@@ -42,7 +39,7 @@ namespace TEST.View.UserControls
                 passBox.Visibility = Visibility.Visible;
             }
 
-            if (!show)
+            else if (!show)
             {
                 passwordTxtBox.Text = passBox.Password;
                 passBox.Visibility = Visibility.Collapsed;

@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace TEST.View.UserControls
 {
@@ -23,19 +13,17 @@ namespace TEST.View.UserControls
     public partial class Client : UserControl
     {
         bool show = false;
+        bool backgroundColor = true;
         public Client()
         {
             InitializeComponent();
+            var firstGeneratePassword = GeneratePassword(8);
+            passBox.Password = firstGeneratePassword;
 
             clientTitle.Text = "Youe Credentials";
         }
 
-        private void btnAcceptAll_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void showPass_Click(object sender, RoutedEventArgs e)
         {
             if (show)
             {
@@ -60,6 +48,11 @@ namespace TEST.View.UserControls
         {
             passwordTxtBox.Text = "";
             passBox.Password = "";
+
+            passwordTxtBox.IsEnabled = true;
+            passBox.IsEnabled = true;
+            generatePass.IsEnabled = true;
+            btnVi.Content = imgVi;
         }
 
         /// <summary>
@@ -92,6 +85,25 @@ namespace TEST.View.UserControls
             } while (!Regex.IsMatch(password, pattern));
 
             return password;
+        }
+
+        private void Vi_Click(object sender, RoutedEventArgs e)
+        {
+            if (backgroundColor)
+            {
+                btnVi.Content = "X";
+                passBox.IsEnabled = false;
+                passwordTxtBox.IsEnabled = false;
+                generatePass.IsEnabled = false;
+            }
+            else if (!backgroundColor)
+            {
+                btnVi.Content = imgVi;
+                passBox.IsEnabled = true;
+                passwordTxtBox.IsEnabled = true;
+                generatePass.IsEnabled = true;
+            }
+            backgroundColor = !backgroundColor;
         }
     }
 }
