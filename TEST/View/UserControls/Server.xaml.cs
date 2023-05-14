@@ -9,13 +9,22 @@ namespace TEST.View.UserControls
     public partial class Server : UserControl
     {
         bool show = false;
+
+        #region constructior
         public Server()
         {
             InitializeComponent();
 
             serverTitle.Text = "Login to the server";
         }
+        #endregion
 
+        #region buttons events
+
+        #region show password
+        /// <summary>
+        /// Show password when click
+        /// </summary>
         private void showPass_Click(object sender, RoutedEventArgs e)
         {
             if (show)
@@ -33,7 +42,9 @@ namespace TEST.View.UserControls
             }
             show = !show;
         }
+        #endregion
 
+        #region clear user name
         /// <summary>
         /// Empty the user name text
         /// </summary>
@@ -41,7 +52,9 @@ namespace TEST.View.UserControls
         {
             txtUserName.Text = "";
         }
+        #endregion
 
+        #region clear password
         /// <summary>
         /// Empty the password text
         /// </summary>
@@ -50,5 +63,8 @@ namespace TEST.View.UserControls
             passBox.Password = "";
             passwordTxtBox.Text = "";
         }
+        #endregion
+
+        #endregion
     }
 }

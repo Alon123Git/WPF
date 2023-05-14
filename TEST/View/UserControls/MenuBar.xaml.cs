@@ -25,9 +25,11 @@ namespace TEST.View.UserControls
             InitializeComponent();
         }
 
+        #region exit application
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
+        #endregion
     }
 }
