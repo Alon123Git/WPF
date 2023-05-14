@@ -12,8 +12,12 @@ namespace TEST.View.UserControls
     /// </summary>
     public partial class Client : UserControl
     {
+        #region varibles
         bool show = false;
         bool backgroundColor = true;
+        #endregion
+
+        #region constructor
         public Client()
         {
             InitializeComponent();
@@ -22,7 +26,9 @@ namespace TEST.View.UserControls
 
             clientTitle.Text = "Youe Credentials";
         }
+        #endregion
 
+        #region buttons events
         private void showPass_Click(object sender, RoutedEventArgs e)
         {
             if (show)
@@ -63,12 +69,30 @@ namespace TEST.View.UserControls
             txtId.Text = "";
         }
 
+        /// <summary>
+        /// generate random password
+        /// </summary>
         private void RandomPassword_Click(object sender, RoutedEventArgs e)
         {
             passBox.Password = GeneratePassword(8);
             passwordTxtBox.Text = GeneratePassword(8);
         }
 
+        /// <summary>
+        /// generate random id
+        /// </summary>
+        private void RandomId_Click(object sender, RoutedEventArgs e)
+        {
+            txtId.Text = GenerateId();
+        }
+        #endregion
+
+        #region generate random password
+        /// <summary>
+        /// generate random password
+        /// </summary>
+        /// <param name="length">length</param>
+        /// <returns>string (generate password)</returns>
         public string GeneratePassword(int length)
         {
             // Define a regular expression pattern to match the password.
@@ -86,7 +110,12 @@ namespace TEST.View.UserControls
 
             return password;
         }
+        #endregion
 
+        #region V button
+        /// <summary>
+        /// disable the password text box
+        /// </summary>
         private void Vi_Click(object sender, RoutedEventArgs e)
         {
             if (backgroundColor)
@@ -105,5 +134,29 @@ namespace TEST.View.UserControls
             }
             backgroundColor = !backgroundColor;
         }
+        #endregion
+
+        #region generate id
+        /// <summary>
+        /// generate random id 
+        /// </summary>
+        /// <returns>string (generate id)</returns>
+        private string GenerateId()
+        {
+            int randomIndex = 0; // init varible
+            string randomElement = ""; // init varible
+            Random rnd = new();
+            string idNums = "0 1 2 3 4 5 6 7 8 9"; //string to choice from
+            string[] idNumsArr = idNums.Split(" ").ToArray(); //convert string to array
+            string finalId = "";
+            for (int i = 0; i < idNumsArr.Length; i++) // creating generated string char by char
+            {
+                randomIndex = rnd.Next(0, idNumsArr.Length);
+                randomElement = idNumsArr[randomIndex];
+                finalId += randomElement;
+            }
+            return finalId; //9 digit generated string
+        }
+        #endregion
     }
 }

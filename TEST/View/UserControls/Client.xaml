@@ -28,6 +28,22 @@
                    Grid.ColumnSpan="3" Text="Youe Credentials"
                    FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         <!--Title Line-->
+        <Grid Grid.Column="5" Grid.Row="1" VerticalAlignment="top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="generateId" Grid.Column="0" Width="63" Height="50" HorizontalAlignment="Center" 
+                    Grid.ColumnSpan="1" Click="RandomId_Click">
+                <Image Source="/Images/refresh-icon-removebg-preview.png" />
+            </Button>
+        </Grid>
+        
 
         <!--Id Line-->
         <TextBlock x:Name="txbId" Grid.Column="0" Grid.Row="1"
