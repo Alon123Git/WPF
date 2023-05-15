@@ -43,7 +43,7 @@
                 <Image Source="/Images/refresh-icon-removebg-preview.png" />
             </Button>
         </Grid>
-        
+
 
         <!--Id Line-->
         <TextBlock x:Name="txbId" Grid.Column="0" Grid.Row="1"
@@ -64,6 +64,28 @@
                      VerticalAlignment="top" Height="50" FontSize="30" />
         <PasswordBox x:Name="passBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="top"
                      Height="50" PasswordChar="*" FontSize="45"></PasswordBox>
+
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!--validation message-->
+            <TextBlock x:Name="txbValid" Grid.Row="2" Grid.RowSpan="5" HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" Text="validation" FontSize="19"
+                       Foreground="Red" Visibility="Collapsed">
+            </TextBlock>
+            <!--validation message-->
+
+        </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -77,7 +99,7 @@
         <Button Background="LightSalmon" Grid.Column="3" Grid.Row="0" VerticalAlignment="Bottom"
                 HorizontalAlignment="Right" Height="20" Width="20" 
                 Content="X" Click="CleanId_Click"></Button>
-        
+
         <Grid Grid.Column="4" Grid.Row="2" VerticalAlignment="top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="7*"/>
@@ -100,8 +122,7 @@
             </Button>
             <Button x:Name="btnVi" Grid.Column="2" Width="63" Height="50" 
                     FontSize="37" HorizontalAlignment="Center" 
-                    VerticalAlignment="Center"
-                   Grid.ColumnSpan="1" Click="Vi_Click">
+                    VerticalAlignment="Bottom" Click="Vi_Click">
                 <Image x:Name="imgVi" Source="/Images/acceptPass.png" />
             </Button>
         </Grid>

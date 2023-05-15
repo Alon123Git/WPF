@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using TEST.Validation;
 
 namespace TEST.View.UserControls
 {
@@ -96,7 +97,7 @@ namespace TEST.View.UserControls
         public string GeneratePassword(int length)
         {
             // Define a regular expression pattern to match the password.
-            string pattern = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
+            string pattern = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,8}$";
 
             // Generate a new random password until it matches the pattern.
             Random rand = new Random();
@@ -107,17 +108,41 @@ namespace TEST.View.UserControls
                 const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
                 password = new string(Enumerable.Repeat(chars, length).Select(s => s[rand.Next(s.Length)]).ToArray());
             } while (!Regex.IsMatch(password, pattern));
-
             return password;
         }
         #endregion
 
         #region V button
         /// <summary>
-        /// disable the password text box
+        /// disable the password text box, and show validation message if needed
         /// </summary>
         private void Vi_Click(object sender, RoutedEventArgs e)
         {
+            bool valid = false;
+
+            if (passBox.Visibility == Visibility.Visible)
+            {
+                valid = ValidServe.validPass(passBox.Password);
+            }
+            else
+            {
+                valid = ValidServe.validPass(passwordTxtBox.Text);
+            }
+            if (!valid)
+            {
+                txbValid.Visibility = Visibility.Visible; // validation message is visible 
+                txbValid.Text = "Password must contain upper case letter and lower case letter.\nnumber and in length of 8."; // validation message
+                if (btnVi.Content != "X")
+                {
+                    MessageBox.Show("Password is not valid", "Error Message", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (valid)
+            {
+                txbValid.Visibility = Visibility.Collapsed; // validation message is hidden
+                txbValid.Text = "";
+            }
+
             if (backgroundColor)
             {
                 btnVi.Content = "X";
@@ -133,6 +158,13 @@ namespace TEST.View.UserControls
                 generatePass.IsEnabled = true;
             }
             backgroundColor = !backgroundColor;
+
+            // if the password is not valid, enable the text box and password box to write the password again
+            if (!valid)
+            {
+                passwordTxtBox.IsEnabled = true;
+                passBox.IsEnabled = true;
+            }
         }
         #endregion
 
