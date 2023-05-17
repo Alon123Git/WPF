@@ -24,7 +24,7 @@ namespace TEST.Validation
         /// <param name="msgBlock">text block</param>
         /// <param name="txt">text box</param>
         /// <returns>false - the validatioSn message is not visible, true - validation message is visible</returns>
-        public static bool validPass(string passTxt, TxtType txtType)
+        public static bool validPass(string passTxt, TxtType txtType)//
         {
             string reExValidation = "";
             if (txtType == TxtType.PASSWORD)
