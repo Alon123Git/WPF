@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TEST.View.UserControls"
+             xmlns:sp="clr-namespace:TEST.View.UserControls"
+
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <!--client-->
@@ -25,7 +27,7 @@
 
         <!--Title Line-->
         <TextBlock x:Name="clientTitle" Grid.Row="0" Grid.Column="1"
-                   Grid.ColumnSpan="3" Text="Youe Credentials"
+                   Grid.ColumnSpan="3" Text="Your Credentials"
                    FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         <!--Title Line-->
         <Grid Grid.Column="5" Grid.Row="1" VerticalAlignment="top">
@@ -46,11 +48,32 @@
 
 
         <!--Id Line-->
-        <TextBlock x:Name="txbId" Grid.Column="0" Grid.Row="1"
+        <TextBlock x:Name="txbIdLabel" Grid.Column="0" Grid.Row="1"
                            Text="ID: " HorizontalAlignment="Right" FontSize="35" />
         <TextBox x:Name="txtId" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
                  VerticalAlignment="top" Height="50" FontSize="30">
         </TextBox>
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!--validation message-->
+            <TextBlock x:Name="txbValid" Grid.Row="2" Grid.RowSpan="5" HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" Text="ID must contain 8 digit " FontSize="19"
+                       Foreground="Red" Visibility="Collapsed" >
+            </TextBlock>
+            <!--validation message-->
+
+        </Grid>
         <Button x:Name="deleteText" Background="LightSalmon" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom"
                 HorizontalAlignment="Right" Height="20" Width="20" 
                 Content="X" Click="CleanPass_Click"></Button>
@@ -79,9 +102,9 @@
             </Grid.RowDefinitions>
 
             <!--validation message-->
-            <TextBlock x:Name="txbValid" Grid.Row="2" Grid.RowSpan="5" HorizontalAlignment="Center" 
-                   VerticalAlignment="Top" Text="validation" FontSize="19"
-                       Foreground="Red" Visibility="Collapsed">
+            <TextBlock x:Name="txbValPassword" Grid.Row="3" Grid.RowSpan="5" HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" Text="password must contain 8 characters include letters and digits" FontSize="14"
+                       Foreground="Red" Visibility="Collapsed" >
             </TextBlock>
             <!--validation message-->
 
@@ -114,7 +137,7 @@
             <Button x:Name="showPass" Click="showPass_Click" Grid.Column="0"
                     Width="63" Height="50"
                     HorizontalAlignment="Left" Grid.ColumnSpan="1">
-                <local:ShowPasss />
+                <sp:ShowPasss/>
             </Button>
             <Button x:Name="generatePass" Grid.Column="1" Width="63" Height="50" HorizontalAlignment="Center" 
                     Grid.ColumnSpan="1" Click="RandomPassword_Click">

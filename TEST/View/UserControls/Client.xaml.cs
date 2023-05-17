@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -15,7 +16,7 @@ namespace TEST.View.UserControls
     {
         #region varibles
         bool show = false;
-        bool backgroundColor = true;
+        bool viToggle = true;
         #endregion
 
         #region constructor
@@ -24,7 +25,8 @@ namespace TEST.View.UserControls
             InitializeComponent();
             var firstGeneratePassword = GeneratePassword(8);
             passBox.Password = firstGeneratePassword;
-
+            var firstGenerateID = GenerateId();
+            txtId.Text = firstGenerateID;
             clientTitle.Text = "Youe Credentials";
         }
         #endregion
@@ -53,13 +55,9 @@ namespace TEST.View.UserControls
         /// </summary>
         private void CleanPass_Click(object sender, RoutedEventArgs e)
         {
+            passCleaner();
             passwordTxtBox.Text = "";
             passBox.Password = "";
-
-            passwordTxtBox.IsEnabled = true;
-            passBox.IsEnabled = true;
-            generatePass.IsEnabled = true;
-            btnVi.Content = imgVi;
         }
 
         /// <summary>
@@ -68,6 +66,7 @@ namespace TEST.View.UserControls
         private void CleanId_Click(object sender, RoutedEventArgs e)
         {
             txtId.Text = "";
+            passCleaner();
         }
 
         /// <summary>
@@ -119,75 +118,98 @@ namespace TEST.View.UserControls
         private void Vi_Click(object sender, RoutedEventArgs e)
         {
             bool valid = false;
+            bool validId = false;
 
             if (passBox.Visibility == Visibility.Visible)
             {
-                valid = ValidServe.validPass(passBox.Password);
+                valid = ValidServe.validPass(passBox.Password, ValidServe.TxtType.PASSWORD);
             }
             else
             {
-                valid = ValidServe.validPass(passwordTxtBox.Text);
+                valid = ValidServe.validPass(passwordTxtBox.Text, ValidServe.TxtType.PASSWORD);
             }
-            if (!valid)
+            validId = ValidServe.validPass(txtId.Text, ValidServe.TxtType.ID);
+            if (!valid || !validId)
             {
-                txbValid.Visibility = Visibility.Visible; // validation message is visible 
-                txbValid.Text = "Password must contain upper case letter and lower case letter.\nnumber and in length of 8."; // validation message
+                if (!valid && !validId) {
+                    txbValid.Visibility = Visibility.Visible;
+                    txbValPassword.Visibility = Visibility.Visible;
+                }
+                else if(valid)
+                {
+                    txbValid.Visibility = Visibility.Visible;
+                    txbValPassword.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    // if the password is not valid, enable the text box and password box to write the password again
+                    passwordTxtBox.IsEnabled = true;
+                    passBox.IsEnabled = true;
+                    txbValid.Visibility = Visibility.Collapsed;
+                    txbValPassword.Visibility = Visibility.Visible; // validation message is visible 
+                }
                 if (btnVi.Content != "X")
                 {
-                    MessageBox.Show("Password is not valid", "Error Message", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Password or id is not valid", "Error Message", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            else if (valid)
-            {
-                txbValid.Visibility = Visibility.Collapsed; // validation message is hidden
-                txbValid.Text = "";
-            }
 
-            if (backgroundColor)
+            if (viToggle && valid && validId)
             {
+                txbValid.Visibility = Visibility.Collapsed;
+                txbValPassword.Visibility = Visibility.Collapsed;
                 btnVi.Content = "X";
                 passBox.IsEnabled = false;
                 passwordTxtBox.IsEnabled = false;
                 generatePass.IsEnabled = false;
+                generateId.IsEnabled = false;
+                txtId.IsEnabled = false;
             }
-            else if (!backgroundColor)
+            else if (!viToggle)
             {
                 btnVi.Content = imgVi;
                 passBox.IsEnabled = true;
                 passwordTxtBox.IsEnabled = true;
                 generatePass.IsEnabled = true;
+                generateId.IsEnabled = true;
+                txtId.IsEnabled = true;
             }
-            backgroundColor = !backgroundColor;
-
-            // if the password is not valid, enable the text box and password box to write the password again
-            if (!valid)
-            {
-                passwordTxtBox.IsEnabled = true;
-                passBox.IsEnabled = true;
-            }
+            viToggle = !viToggle;
         }
         #endregion
 
         #region generate id
-        /// <summary>
-        /// generate random id 
-        /// </summary>
-        /// <returns>string (generate id)</returns>
-        private string GenerateId()
-        {
-            int randomIndex = 0; // init varible
-            string randomElement = ""; // init varible
-            Random rnd = new();
-            string idNums = "0 1 2 3 4 5 6 7 8 9"; //string to choice from
-            string[] idNumsArr = idNums.Split(" ").ToArray(); //convert string to array
-            string finalId = "";
-            for (int i = 0; i < idNumsArr.Length; i++) // creating generated string char by char
+            /// <summary>
+            /// generate random id 
+            /// </summary>
+            /// <returns>string (generate id)</returns>
+            private string GenerateId()
             {
-                randomIndex = rnd.Next(0, idNumsArr.Length);
-                randomElement = idNumsArr[randomIndex];
-                finalId += randomElement;
+                int randomIndex = 0; // init varible
+                string randomElement = ""; // init varible
+                Random rnd = new();
+                string idNums = "0 1 2 3 4 5 6 7 8 9"; //string to choice from
+                string[] idNumsArr = idNums.Split(" ").ToArray(); //convert string to array
+                string finalId = "";
+                for (int i = 0; i < idNumsArr.Length-1; i++) // creating generated string char by char
+                {
+                    randomIndex = rnd.Next(0, idNumsArr.Length);
+                    randomElement = idNumsArr[randomIndex];
+                    finalId += randomElement;
+                }
+                return finalId; //9 digit generated string
             }
-            return finalId; //9 digit generated string
+        #endregion
+
+        #region passCleaner
+        private void passCleaner()
+        {
+            generateId.IsEnabled = true;
+            passwordTxtBox.IsEnabled = true;
+            passBox.IsEnabled = true;
+            generatePass.IsEnabled = true;
+            btnVi.Content = imgVi;
+            txtId.IsEnabled = true;
         }
         #endregion
     }
