@@ -28,6 +28,8 @@ namespace TEST
 
             DbContextOptionsBuilder<ApplicationDbContext> optionsBuilder = new();
             optionsBuilder.UseSqlServer(connectionString);
+
+            ApplicationDbContext context = new ApplicationDbContext(optionsBuilder.Options);
         }
     }
 }

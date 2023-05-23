@@ -30,10 +30,8 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
-                
+
             </Grid.ColumnDefinitions>
-            
-            
 
             <!--server-->
             <server:Server Grid.Column="0" />
