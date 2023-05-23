@@ -1,30 +1,35 @@
 ﻿using System;
-using System.Diagnostics.Eventing.Reader;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using TEST.Validation;
 using TEST.ViewModel;
-using TEST.Windows;
 
-namespace TEST.View.UserControls
+namespace TEST.Windows
 {
     /// <summary>
     /// Interaction logic for Client.xaml
     /// </summary>
-    public partial class Client : UserControl
+    public partial class Client : Window
     {
         #region varibles
         bool show = false;
         bool viToggle = true;
         #endregion
-
-        #region constructor
         public Client()
         {
             InitializeComponent();
+            WindowState = WindowState.Maximized;
             var firstGeneratePassword = GeneratePassword(8);
             passBox.Password = firstGeneratePassword;
             var firstGenerateID = GenerateId();
@@ -33,7 +38,6 @@ namespace TEST.View.UserControls
 
             DataContext = new BaseViewModel();
         }
-        #endregion
 
         #region buttons events
         private void showPass_Click(object sender, RoutedEventArgs e)
@@ -217,5 +221,12 @@ namespace TEST.View.UserControls
             txtId.IsEnabled = true;
         }
         #endregion
+
+        private void HomePage_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mn = new();
+            mn.Show();
+            Close();
+        }
     }
 }

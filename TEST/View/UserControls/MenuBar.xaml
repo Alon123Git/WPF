@@ -24,8 +24,6 @@
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
-            <Button Width="50" Margin="5" />
-            <TextBox Width="150" Grid.Column="1" Margin="5" />
         </Grid>
     </Grid>
 </UserControl>

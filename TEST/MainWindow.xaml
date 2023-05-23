@@ -9,41 +9,41 @@
         xmlns:client="clr-namespace:TEST.View.UserControls"
         xmlns:foot="clr-namespace:TEST.View.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="2000" Width="2000">
+        Title="MainWindow" Height="1500" Width="1500">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
             <RowDefinition />
-            <RowDefinition  Height="45"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-        </Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <!--menu bar-->
-        <menuBar:MenuBar/>
+        <menuBar:MenuBar VerticalAlignment="Top"/>
         <!--menu bar-->
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
 
-            </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="2"
+                   Text="Home Page" FontSize="100"
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top"></TextBlock>
 
-            <!--server-->
-            <server:Server Grid.Column="0" />
-            <!--server-->
-
-            <!--client-->
-            <client:Client Grid.Column="1" />
-            <!--client-->
-            
-        </Grid>
-        <!--footer-->
-        <foot:Footer Grid.Row="2" />
-        <!--footer-->
+        <Button Grid.Row="3" Grid.Column="1" Content="Server"
+                FontSize="50" Click="Server_Click"></Button>
+        <Button Grid.Row="3" Grid.Column="5" Content="Client"
+                FontSize="50" Click="Client_Click"></Button>
     </Grid>
 </Window>

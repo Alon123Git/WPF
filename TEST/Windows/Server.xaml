@@ -1,13 +1,11 @@
-﻿<UserControl x:Class="TEST.View.UserControls.Server"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TEST.View.UserControls"
-             xmlns:win="clr-namespace:TEST.Windows"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <!--server-->
+﻿<Window x:Class="TEST.Windows.Server"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TEST.View.UserControls"
+        mc:Ignorable="d"
+        Title="Server" Height="2000" Width="2000">
     <Grid Grid.Column="0" Background="#FF00B5FF">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -79,6 +77,9 @@
                            Text="Don't have an account?" FontSize="20" />
 
         <!--Bottom Line-->
+        <Button Content="Back" Width="40" Height="40" VerticalAlignment="Top"
+                HorizontalAlignment="Left" Click="HomePage_Click"
+                Background="lightGreen"></Button>
     </Grid>
     <!--server-->
-</UserControl>
+</Window>

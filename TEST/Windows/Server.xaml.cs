@@ -1,13 +1,23 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
-using TEST.Windows;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
-namespace TEST.View.UserControls
+namespace TEST.Windows
 {
     /// <summary>
     /// Interaction logic for Server.xaml
     /// </summary>
-    public partial class Server : UserControl
+    public partial class Server : Window
     {
         bool show = false;
 
@@ -15,7 +25,7 @@ namespace TEST.View.UserControls
         public Server()
         {
             InitializeComponent();
-
+            WindowState = WindowState.Maximized;
             serverTitle.Text = "Login to the server";
         }
         #endregion
@@ -67,5 +77,12 @@ namespace TEST.View.UserControls
         #endregion
 
         #endregion
+
+        private void HomePage_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mn = new();
+            mn.Show();
+            Close();
+        }
     }
 }
