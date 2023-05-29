@@ -11,7 +11,6 @@ namespace TEST
         public MainWindow()
         {
             InitializeComponent();
-            WindowState = WindowState.Maximized;
         }
 
         private void Client_Click(object sender, RoutedEventArgs e)

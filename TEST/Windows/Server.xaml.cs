@@ -25,8 +25,6 @@ namespace TEST.Windows
         public Server()
         {
             InitializeComponent();
-            WindowState = WindowState.Maximized;
-            serverTitle.Text = "Login to the server";
         }
         #endregion
 
@@ -82,6 +80,13 @@ namespace TEST.Windows
         {
             MainWindow mn = new();
             mn.Show();
+            Close();
+        }
+
+        private void SignIn_Click(object sender, RoutedEventArgs e)
+        {
+            SignUp su = new();
+            su.Show();
             Close();
         }
     }

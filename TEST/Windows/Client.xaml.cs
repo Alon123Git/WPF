@@ -29,7 +29,6 @@ namespace TEST.Windows
         public Client()
         {
             InitializeComponent();
-            WindowState = WindowState.Maximized;
             var firstGeneratePassword = GeneratePassword(8);
             passBox.Password = firstGeneratePassword;
             var firstGenerateID = GenerateId();

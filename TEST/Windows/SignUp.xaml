@@ -1,0 +1,46 @@
+﻿<Window x:Class="TEST.Windows.SignUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TEST.Windows"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="FirstNLabel" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="First Name :" FontSize="20"></TextBlock>
+            <TextBox x:Name="FirstNInput" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Text" FontSize="15" Width="180"></TextBox>
+            <TextBlock x:Name="LastNLabel" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Last Name :" FontSize="20"></TextBlock>
+            <TextBox x:Name="LastNInput" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Text" FontSize="15" Width="180"></TextBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="UserLabel" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="UserName :" FontSize="20"></TextBlock>
+            <TextBox x:Name="UserInput" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Text" FontSize="15" Width="180"></TextBox>
+            <TextBlock x:Name="PassLabel" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Password :" FontSize="20"></TextBlock>
+            <PasswordBox x:Name="PassInput" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Width="180"></PasswordBox>
+        </Grid>
+        <TextBlock Grid.Row="0" x:Name="SignUpLabel" Text="Sign Up" Foreground="Green" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
+        <Button Width="40" Height="40" HorizontalAlignment="Left"  VerticalAlignment="Top"
+                Background="LightCoral" Content="Back" Click="BackToHomePage_Click"></Button>
+    </Grid>
+</Window>
+    

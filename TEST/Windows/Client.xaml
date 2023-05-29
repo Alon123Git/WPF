@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TEST.Windows" 
         xmlns:sp="clr-namespace:TEST.View.UserControls"
         mc:Ignorable="d"
-        Title="Client" Height="2000" Width="2000">
+        Title="Client" Height="700" Width="950" MinHeight="700" MinWidth="950">
     <Grid Grid.Column="1" Background="#FF83FF86">
         <Grid.RowDefinitions>
             <RowDefinition />

@@ -9,16 +9,9 @@
         xmlns:client="clr-namespace:TEST.View.UserControls"
         xmlns:foot="clr-namespace:TEST.View.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1500" Width="1500">
+        Title="MainWindow" Height="500" Width="1200" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -41,9 +34,9 @@
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Top"></TextBlock>
 
-        <Button Grid.Row="3" Grid.Column="1" Content="Server"
+        <Button Grid.Row="1" Grid.Column="1" Content="Server"
                 FontSize="50" Click="Server_Click"></Button>
-        <Button Grid.Row="3" Grid.Column="5" Content="Client"
+        <Button Grid.Row="1" Grid.Column="5" Content="Client"
                 FontSize="50" Click="Client_Click"></Button>
     </Grid>
 </Window>
