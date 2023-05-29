@@ -41,6 +41,7 @@
         <TextBlock Grid.Row="0" x:Name="SignUpLabel" Text="Sign Up" Foreground="Green" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
         <Button Width="40" Height="40" HorizontalAlignment="Left"  VerticalAlignment="Top"
                 Background="LightCoral" Content="Back" Click="BackToHomePage_Click"></Button>
+        <!--g-->
     </Grid>
 </Window>
     
